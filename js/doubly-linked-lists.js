@@ -1,15 +1,12 @@
-class LinkedListNode {
-  constructor(value, next = null) {
+class DoublyLinkedNode {
+  constructor(value, next = null, prev = null) {
     this.value = value;
     this.next = next;
-  }
-
-  toString(callback) {
-    return callback ? callback(this.value) : `${this.value}`;
+    this.prev = prev;
   }
 }
 
-export class LinkedList {
+export class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -25,9 +22,10 @@ export class LinkedList {
    * @param {*} value - new value 
    */
   prepend(value) {
-    const newListNode = new LinkedListNode(value, this.head);
-    this.head = newListNode;
+    const newListNode = new DoublyLinkedNode(value, this.head, null);
 
+    if (this.head) this.head.prev = newListNode;
+    this.head = newListNode;
     if (!this.tail) this.tail = newListNode;
 
     return this;
@@ -39,16 +37,18 @@ export class LinkedList {
    * @param {*} value - new value
    */
   append(value) {
-    const newListNode = new LinkedListNode(value, null);
+    const newListNode = new DoublyLinkedNode(value);
 
-    if (!this.tail || !this.head) {
-      this.tail = newListNode;
-      this.head = newListNode;
-      return this;
+    if (this.tail) {
+      this.tail.next = newListNode;
     }
 
-    this.tail.next = newListNode;
+    newListNode.prev = this.tail;
     this.tail = newListNode;
+
+    if (!this.head) {
+      this.head = newListNode;
+    }
 
     return this;
   }
@@ -63,29 +63,32 @@ export class LinkedList {
 
     let deletedNode = null;
 
-    if (this.head && this.head.value === value) {
+    if (this.head.value === value) {
       deletedNode === this.head;
       this.head = this.head.next;
+      this.head.prev = null;
+    }
+
+    if (this.tail.value === value) {
+      deletedNode = this.tail;
+      deletedNode.prev.next = null;
+      this.tail = deletedNode.prev;
+      return deletedNode
     }
 
     let currentNode = this.head;
-    if (currentNode) {
-      while (currentNode.next) {
-        if (currentNode.next.value === value) {
-          deletedNode = currentNode.next;
-          currentNode.next = currentNode.next.next;
-        } else {
-          currentNode = currentNode.next;
-        }
+    while (currentNode.next) {
+      if (currentNode.next.value === value) {
+        deletedNode = currentNode.next;
+        currentNode.next = currentNode.next.next;
+        currentNode.next.prev = currentNode;
+        break;
+      } else {
+        currentNode = currentNode.next;
       }
     }
 
-    if (this.tail && this.tail.value === value) {
-      this.tail = currentNode;
-    }
-
     return deletedNode;
-
   }
 
   /**
@@ -124,19 +127,10 @@ export class LinkedList {
       return deletedNode;
     }
 
-    let currentNode = this.head;
-    while (currentNode.next) {
-      if (!currentNode.next.next) {
-        deletedNode = currentNode.next;
-        currentNode.next = null;
-      } else {
-        currentNode = currentNode.next;
-      }
-    }
+    deletedNode.prev.next = null;
+    this.tail = deletedNode.prev;
+    return deletedNode
 
-    this.tail = currentNode;
-
-    return deletedNode;
   }
 
   /**
@@ -156,6 +150,8 @@ export class LinkedList {
     }
 
     this.head = this.head.next;
+    this.head.prev = null;
+
 
     return deletedNode;
   }
@@ -194,18 +190,21 @@ export class LinkedList {
     let currNode = this.head;
     let prevNode = null;
     let nextNode = null;
-
+  
     while (currNode) {
       nextNode = currNode.next;
+      prevNode = currNode.previous;
+  
       currNode.next = prevNode;
+      currNode.previous = nextNode;
+  
       prevNode = currNode;
       currNode = nextNode;
     }
-
+  
     this.tail = this.head;
     this.head = prevNode;
-
+  
     return this;
   }
-
 }
