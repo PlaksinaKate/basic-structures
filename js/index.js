@@ -1,6 +1,7 @@
-import { DoublyLinkedList } from "./doubly-linked-lists.js";
-/* import { LinkedList } from "./linked-list.js";
- */
+//import { DoublyLinkedList } from "./doubly-linked-lists.js";
+//import { LinkedList } from "./linked-list.js";
+//import { BinaryTreeNode } from "./binary-tree.js";
+
 /* LinkedList */
 // const linkedList = new LinkedList();
 // linkedList.prepend('Привет!');
@@ -15,7 +16,7 @@ import { DoublyLinkedList } from "./doubly-linked-lists.js";
 // console.log(linkedList.reverse());
 
 /* DoublyLinkedList */
-const doublyLinkedList = new DoublyLinkedList();
+// const doublyLinkedList = new DoublyLinkedList();
 // doublyLinkedList.prepend('1');
 // doublyLinkedList.append('2');
 // doublyLinkedList.append('3');
@@ -25,8 +26,27 @@ const doublyLinkedList = new DoublyLinkedList();
 // console.log(doublyLinkedList.find('1'));
 // console.log(doublyLinkedList.deleteTail());
 // console.log(doublyLinkedList.deleteHead());
-console.log(doublyLinkedList.fromArray([1,2,3,4,5]));
-console.log(doublyLinkedList.toArray());
-console.log('doublyLinkedList', doublyLinkedList);
+// console.log(doublyLinkedList.fromArray([1,2,3,4,5]));
+// console.log(doublyLinkedList.toArray());
+// console.log('doublyLinkedList', doublyLinkedList);
 
+/* BinaryTree */
+// let aNode = new BinaryTreeNode('a');
+
+// let bNode = new BinaryTreeNode('b');
+// aNode.setLeft(bNode);
+
+// let cNode = new BinaryTreeNode('c');
+// aNode.setRight(cNode);
+
+// let dNode = new BinaryTreeNode('d');
+// bNode.setRight(dNode);
+
+// let eNode = new BinaryTreeNode('e');
+// cNode.setLeft(eNode);
+
+// let fNode = new BinaryTreeNode('f');
+// cNode.setRight(fNode);
+
+// console.log('BinaryTreeNode', aNode);
 
