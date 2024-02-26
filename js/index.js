@@ -1,7 +1,8 @@
 //import { DoublyLinkedList } from "./doubly-linked-lists.js";
 //import { LinkedList } from "./linked-list.js";
 //import { BinaryTreeNode } from "./binary-tree.js";
-import { HashTable } from "./hash-table.js";
+import { BinaryHeap } from "./binary-heap.js";
+//import { HashTable } from "./hash-table.js";
 
 /* LinkedList */
 // const linkedList = new LinkedList();
@@ -52,9 +53,20 @@ import { HashTable } from "./hash-table.js";
 // console.log('BinaryTreeNode', aNode);
 
 // Hash table
-const dist = new HashTable();
-dist.add('ab', '1');
-dist.add('ba', '2');
-console.log(dist);
-console.log(dist.getLength());
+// const dist = new HashTable();
+// dist.add('ab', '1');
+// dist.add('ba', '2');
+// console.log(dist);
+// console.log(dist.getLength());
 
+
+//BinaryHeap
+const binaryHeap = new BinaryHeap();
+binaryHeap.enqueue(1);
+binaryHeap.enqueue(2);
+binaryHeap.enqueue(0);
+binaryHeap.enqueue(3);
+
+console.log(binaryHeap.dequeue());
+console.log(binaryHeap.dequeue());
+console.log(binaryHeap);
