@@ -1,7 +1,8 @@
 //import { DoublyLinkedList } from "./doubly-linked-lists.js";
 //import { LinkedList } from "./linked-list.js";
 //import { BinaryTreeNode } from "./binary-tree.js";
-import { BinaryHeap } from "./binary-heap.js";
+//import { BinaryHeap } from "./binary-heap.js";
+import { Queue } from "./queue.js";
 //import { HashTable } from "./hash-table.js";
 
 /* LinkedList */
@@ -61,12 +62,22 @@ import { BinaryHeap } from "./binary-heap.js";
 
 
 //BinaryHeap
-const binaryHeap = new BinaryHeap();
-binaryHeap.enqueue(1);
-binaryHeap.enqueue(2);
-binaryHeap.enqueue(0);
-binaryHeap.enqueue(3);
+// const binaryHeap = new BinaryHeap();
+// binaryHeap.enqueue(1);
+// binaryHeap.enqueue(2);
+// binaryHeap.enqueue(0);
+// binaryHeap.enqueue(3);
 
-console.log(binaryHeap.dequeue());
-console.log(binaryHeap.dequeue());
-console.log(binaryHeap);
+// console.log(binaryHeap.dequeue());
+// console.log(binaryHeap.dequeue());
+// console.log(binaryHeap);
+
+
+// Queue
+const queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(1);
+queue.dequeue();
+queue.dequeue();
+queue.print();
