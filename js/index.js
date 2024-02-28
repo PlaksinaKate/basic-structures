@@ -3,6 +3,7 @@
 //import { BinaryTreeNode } from "./binary-tree.js";
 //import { BinaryHeap } from "./binary-heap.js";
 import { Queue } from "./queue.js";
+import { Stack } from "./stack.js";
 //import { HashTable } from "./hash-table.js";
 
 /* LinkedList */
@@ -77,7 +78,15 @@ import { Queue } from "./queue.js";
 const queue = new Queue();
 queue.enqueue(1);
 queue.enqueue(2);
-queue.enqueue(1);
+queue.enqueue(3);
 queue.dequeue();
 queue.dequeue();
 queue.print();
+
+//Stack
+const stack = new Stack();
+stack.enqueue(1);
+stack.enqueue(2);
+stack.enqueue(3);
+stack.dequeue();
+stack.print();

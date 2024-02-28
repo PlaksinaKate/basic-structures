@@ -1,8 +1,7 @@
-export class Queue {
+export class Stack {
   constructor() {
     this.values = {};
-    this.frontIndex = 0;
-    this.backIndex = -1;
+    this.frontIndex = -1;
   }
 
   /**
@@ -43,7 +42,7 @@ export class Queue {
    * @param {*} item - new meaning
    */
   enqueue(item) {
-    this.values[++this.backIndex] = item;
+    this.values[++this.frontIndex] = item;
   }
 
   /**
@@ -51,7 +50,7 @@ export class Queue {
    */
   dequeue() {
     if (!this.isEmpty()) {
-      delete this.values[this.frontIndex++];
+      delete this.values[this.frontIndex--];
     }
   }
 }
