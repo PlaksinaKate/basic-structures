@@ -2,9 +2,10 @@
 //import { LinkedList } from "./linked-list.js";
 //import { BinaryTreeNode } from "./binary-tree.js";
 //import { BinaryHeap } from "./binary-heap.js";
-import { Queue } from "./queue.js";
-import { Stack } from "./stack.js";
 //import { HashTable } from "./hash-table.js";
+// import { Queue } from "./queue.js";
+// import { Stack } from "./stack.js";
+import { Graph } from "./graph.js";
 
 /* LinkedList */
 // const linkedList = new LinkedList();
@@ -75,18 +76,37 @@ import { Stack } from "./stack.js";
 
 
 // Queue
-const queue = new Queue();
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-queue.dequeue();
-queue.dequeue();
-queue.print();
+// const queue = new Queue();
+// queue.enqueue(1);
+// queue.enqueue(2);
+// queue.enqueue(3);
+// queue.dequeue();
+// queue.dequeue();
+// queue.print();
 
 //Stack
-const stack = new Stack();
-stack.enqueue(1);
-stack.enqueue(2);
-stack.enqueue(3);
-stack.dequeue();
-stack.print();
+// const stack = new Stack();
+// stack.enqueue(1);
+// stack.enqueue(2);
+// stack.enqueue(3);
+// stack.dequeue();
+// stack.print();
+
+//Graph
+const graph = new Graph();
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addVertex('C');
+graph.addVertex('D');
+graph.addVertex('E');
+graph.addVertex('F');
+graph.addVertex('G');
+graph.addVertex('H');
+
+graph.addEdge('A', 'B');
+graph.addEdge('A', 'C');
+graph.addEdge('C', 'D');
+graph.addEdge('C', 'E');
+graph.addEdge('A', 'F');
+graph.addEdge('F', 'G');
+console.log(graph);
