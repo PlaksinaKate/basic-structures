@@ -37,7 +37,8 @@
 
 const searchValue = function (nums, target, isLeft) {
   let i = isLeft ? 0 : nums.length - 1;
-  const end = isLeft ? nums.length - 1 : 0;
+  const end = isLeft ? nums.length : -1;
+
   while (i !== end) {
       if (nums[i] === target) {
           return i;
@@ -52,6 +53,10 @@ const searchValue = function (nums, target, isLeft) {
       } else {
           i--;
       }
+  }
+
+  if (nums.length === 1 && nums[i] === target) {
+      return i;
   }
 
   return -1
